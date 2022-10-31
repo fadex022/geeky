@@ -69,6 +69,7 @@ intents.presences = True
 
 intents = discord.Intents.default()
 intents.message_content = True
+intents.members = True
 intents.messages = True # `message_content` is required to get the content of the messages
 
 """
