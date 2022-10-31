@@ -148,7 +148,12 @@ async def on_member_join(member):
             color=0xE02B2B
         )
     embed.set_author(
-            name="Bot"
+            name="Gauss"
+        )
+    embed.add_field(
+            name="Commandes de GeeKy:",
+            value=f"Utilisez {bot.config['prefix']}help pour avoir la liste des commandes",
+            inline=True
         )
     welcome_rules = bot.get_channel(1035907433807237141)
     await welcome_rules.send(embed=embed)
