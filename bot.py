@@ -146,6 +146,9 @@ async def on_member_join(member):
             description= f"Hey, Bienvenue dans notre monde👨🏾‍💻! {member.display_name}",
             color=0xE02B2B
         )
+    embed.set_author(
+            name="Bot"
+        )
     welcome_rules = bot.get_channel(1035907433807237141)
     await welcome_rules.send(embed=embed)
 
