@@ -143,12 +143,21 @@ async def on_message(message: discord.Message) -> None:
 @bot.event
 async def on_member_join(member):
     embed = discord.Embed(
-            title="Welcome",
-            description= f"Hey, Bienvenue dans notre monde👨🏾‍💻! {member.display_name}",
+            title=f"Welcome {member.display_name}",
+            description= "Hey, Bienvenue dans notre monde👨🏾‍💻! ",
             color=0xE02B2B
         )
     embed.set_author(
             name="Gauss"
+        )
+    embed.add_field(
+            name="Le Open Source est Roi ici.",
+        )
+        
+    embed.add_field(
+            name="But du serveur:",
+            value="Le but du serveur est de créer une communauté de Codeur et d'Architectes. Ce serveur est le lieu d'apprendre des autres, de partager son savoir et sa passion pour notre domaine.",
+            inline=True
         )
     embed.add_field(
             name="Commandes de GeeKy:",
