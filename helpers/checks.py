@@ -8,6 +8,7 @@ Version: 5.3
 
 import json
 from typing import Callable, TypeVar
+import os
 
 from discord.ext import commands
 
@@ -22,9 +23,8 @@ def is_owner() -> Callable[[T], T]:
     This is a custom check to see if the user executing the command is an owner of the bot.
     """
     async def predicate(context: commands.Context) -> bool:
-        with open("config.json") as file:
-            data = json.load(file)
-        if context.author.id not in data["owners"]:
+        
+        if str(context.author.id) not in os.getenv("owners").split(" "):
             raise UserNotOwner
         return True
 
