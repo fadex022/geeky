@@ -158,12 +158,12 @@ async def on_member_join(member):
     embed.add_field(
             name="But du serveur:",
             value="Le but du serveur est de créer une communauté de Codeur et d'Architectes. Ce serveur est le lieu d'apprendre des autres, de partager son savoir et sa passion pour notre domaine.",
-            inline=True
+            inline=False
         )
     embed.add_field(
             name="Commandes de GeeKy:",
             value=f"Utilisez {bot.config['prefix']}help pour avoir la liste des commandes",
-            inline=True
+            inline=False
         )
     welcome_rules = bot.get_channel(1035907433807237141)
     await welcome_rules.send(embed=embed)
