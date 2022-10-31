@@ -142,15 +142,12 @@ async def on_message(message: discord.Message) -> None:
 @bot.event
 async def on_member_join(member):
     embed = discord.Embed(
+            title="Welcome",
+            description= f"Hey, Bienvenue dans notre monde👨🏾‍💻! {member.display_name}",
             color=0xE02B2B
         )
-    embed.add_field(
-            name="Welcome:",
-            value=f"Hey, Bienvenue dans notre monde👨🏾‍💻! {member.display_name}",
-            inline=False
-        )
     welcome_rules = bot.get_channel(1035907433807237141)
-    await welcome_rules.send("embed=embed")
+    await welcome_rules.send(embed=embed)
 
 
 
