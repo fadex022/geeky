@@ -1,5 +1,5 @@
 """"
-Copyright © Krypton 2022 - https://github.com/kkrypt0nn (https://krypton.ninja)
+Copyright © GaussDev 2022 - https://github.com/fadex022
 Description:
 This is a template to create your own discord bot in python.
 
@@ -21,28 +21,28 @@ class Choice(discord.ui.View):
         super().__init__()
         self.value = None
 
-    @discord.ui.button(label="Heads", style=discord.ButtonStyle.blurple)
+    @discord.ui.button(label="Face", style=discord.ButtonStyle.blurple)
     async def confirm(self, button: discord.ui.Button, interaction: discord.Interaction):
-        self.value = "heads"
+        self.value = "Face"
         self.stop()
 
-    @discord.ui.button(label="Tails", style=discord.ButtonStyle.blurple)
+    @discord.ui.button(label="Pile", style=discord.ButtonStyle.blurple)
     async def cancel(self, button: discord.ui.Button, interaction: discord.Interaction):
-        self.value = "tails"
+        self.value = "Pile"
         self.stop()
 
 
-class RockPaperScissors(discord.ui.Select):
+class PierrePapierCiseaux(discord.ui.Select):
     def __init__(self):
         options = [
             discord.SelectOption(
-                label="Scissors", description="You choose scissors.", emoji="✂"
+                label="Ciseaux", description="You choose Ciseaux.", emoji="✂"
             ),
             discord.SelectOption(
-                label="Rock", description="You choose rock.", emoji="🪨"
+                label="Pierre", description="You choose Pierre.", emoji="🪨"
             ),
             discord.SelectOption(
-                label="paper", description="You choose paper.", emoji="🧻"
+                label="Papier", description="You choose Papier.", emoji="🧻"
             ),
         ]
         super().__init__(
@@ -54,9 +54,9 @@ class RockPaperScissors(discord.ui.Select):
 
     async def callback(self, interaction: discord.Interaction):
         choices = {
-            "rock": 0,
-            "paper": 1,
-            "scissors": 2,
+            "Pierre": 0,
+            "Papier": 1,
+            "Ciseaux": 2,
         }
         user_choice = self.values[0].lower()
         user_choice_index = choices[user_choice]
@@ -67,7 +67,7 @@ class RockPaperScissors(discord.ui.Select):
         result_embed = discord.Embed(color=0x9C84EF)
         result_embed.set_author(
             name=interaction.user.name,
-            icon_url=interaction.user.avatar.url
+            icon_url=interaction.user.displayAvatarURL()
         )
 
         if user_choice_index == bot_choice_index:
@@ -88,10 +88,10 @@ class RockPaperScissors(discord.ui.Select):
         await interaction.response.edit_message(embed=result_embed, content=None, view=None)
 
 
-class RockPaperScissorsView(discord.ui.View):
+class PierrePapierCiseauxView(discord.ui.View):
     def __init__(self):
         super().__init__()
-        self.add_item(RockPaperScissors())
+        self.add_item(PierrePapierCiseaux())
 
 
 class Fun(commands.Cog, name="fun"):
@@ -144,7 +144,7 @@ class Fun(commands.Cog, name="fun"):
         )
         message = await context.send(embed=embed, view=buttons)
         await buttons.wait()  # We wait for the user to click a button.
-        result = random.choice(["heads", "tails"])
+        result = random.choice(["Face", "Pile"])
         if buttons.value == result:
             embed = discord.Embed(
                 description=f"Correct! You guessed `{buttons.value}` and I flipped the coin to `{result}`.",
@@ -159,16 +159,16 @@ class Fun(commands.Cog, name="fun"):
 
     @commands.hybrid_command(
         name="rps",
-        description="Play the rock paper scissors game against the bot."
+        description="Play the Pierre Papier Ciseaux game against the bot."
     )
     @checks.not_blacklisted()
-    async def rock_paper_scissors(self, context: Context) -> None:
+    async def Pierre_Papier_Ciseaux(self, context: Context) -> None:
         """
-        Play the rock paper scissors game against the bot.
+        Play the Pierre Papier Ciseaux game against the bot.
 
         :param context: The hybrid command context.
         """
-        view = RockPaperScissorsView()
+        view = PierrePapierCiseauxView()
         await context.send("Please make your choice", view=view)
 
 

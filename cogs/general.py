@@ -1,6 +1,5 @@
 """"
-Copyright © Krypton 2022 - https://github.com/kkrypt0nn (https://krypton.ninja)
-Description:
+Copyright © GaussDev 2022 - https://github.com/fadex022
 This is a template to create your own discord bot in python.
 
 Version: 5.3
@@ -58,7 +57,6 @@ class General(commands.Cog, name="general"):
         :param context: The hybrid command context.
         """
         embed = discord.Embed(
-            description="Used [Krypton's](https://krypton.ninja) template",
             color=0x9C84EF
         )
         embed.set_author(
