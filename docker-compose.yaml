@@ -1,0 +1,21 @@
+
+version: '3'
+services:
+  geeky:
+    env_file: .env
+    container_name: geeky
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment: 
+      prefix: ${prefix}
+      token: ${token}
+      permissions: ${permissions}
+      application_id: ${application_id}
+      sync_commands_globally: ${sync_commands_globally}
+      owners: ${owners}
+      # sometimes the console won't show print messages,
+      # using PYTHONUNBUFFERED: 1 can fix this
+      PYTHONUNBUFFERED: 1
+    volumes:
+      - .:/usr/app/src
