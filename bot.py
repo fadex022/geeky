@@ -150,7 +150,7 @@ async def on_member_join(member) -> None:
             inline=False
         )
     welcome_rules = bot.get_channel(1035907433807237141)
-    await welcome_rules.send(embed=embed)
+    await welcome_rules.send("embed=embed")
 
 
 
