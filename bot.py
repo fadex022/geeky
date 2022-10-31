@@ -139,6 +139,17 @@ async def on_message(message: discord.Message) -> None:
     if message.content.lower().startswith('hi geeky'):
         await message.channel.send(f'Salut {message.author}!')
 
+@bot.event
+async def on_member_join(member) -> None:
+    embed = discord.Embed(
+            title=f"Hey, Bienvenue dans notre monde👨🏾‍💻! {member.display_name}",
+            description=f"",
+            color=0xE02B2B
+        )
+    welcome_rules: discord.TextChannel = client.get_channel(1035907433807237141)
+    await welcome_rules.send(embed=embed)
+
+
 
 @bot.event
 async def on_command_completion(context: Context) -> None:
