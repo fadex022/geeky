@@ -31,6 +31,8 @@ config = {}
 for key in ["prefix", "token", "permissions", "application_id", "sync_commands_globally", "owners"]:
     if key == "owners":
         config[key] = os.getenv(key).split(" ")
+    elif key == "sync_commands_globally":
+        config[key] = True
     else:
         config[key] = os.getenv(key)
 
