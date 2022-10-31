@@ -140,7 +140,7 @@ async def on_message(message: discord.Message) -> None:
         await message.channel.send(f'Salut {message.author}!')
 
 @bot.event
-async def on_member_join(member) -> None:
+async def on_member_join(member):
     embed = discord.Embed(
             color=0xE02B2B
         )
