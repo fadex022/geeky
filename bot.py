@@ -151,7 +151,8 @@ async def on_member_join(member):
             name="Gauss"
         )
     embed.add_field(
-            name="Le Open Source est Roi ici.",
+            name="Important:",
+            value="Le Open Source est Roi ici."
         )
         
     embed.add_field(
