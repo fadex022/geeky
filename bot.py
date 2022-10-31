@@ -149,7 +149,7 @@ async def on_member_join(member) -> None:
             value=f"Hey, Bienvenue dans notre monde👨🏾‍💻! {member.display_name}",
             inline=False
         )
-    welcome_rules: discord.TextChannel = client.get_channel(1035907433807237141)
+    welcome_rules: discord.TextChannel = bot.get_channel(1035907433807237141)
     await welcome_rules.send(embed=embed)
 
 
