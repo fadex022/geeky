@@ -36,13 +36,13 @@ class PierrePapierCiseaux(discord.ui.Select):
     def __init__(self):
         options = [
             discord.SelectOption(
-                label="Ciseaux", description="You choose Ciseaux.", emoji="✂"
+                label="ciseaux", description="You choose Ciseaux.", emoji="✂"
             ),
             discord.SelectOption(
-                label="Pierre", description="You choose Pierre.", emoji="🪨"
+                label="pierre", description="You choose Pierre.", emoji="🪨"
             ),
             discord.SelectOption(
-                label="Papier", description="You choose Papier.", emoji="🧻"
+                label="papier", description="You choose Papier.", emoji="🧻"
             ),
         ]
         super().__init__(
@@ -54,9 +54,9 @@ class PierrePapierCiseaux(discord.ui.Select):
 
     async def callback(self, interaction: discord.Interaction):
         choices = {
-            "Pierre": 0,
-            "Papier": 1,
-            "Ciseaux": 2,
+            "pierre": 0,
+            "papier": 1,
+            "ciseaux": 2,
         }
         user_choice = self.values[0].lower()
         user_choice_index = choices[user_choice]
